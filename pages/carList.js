@@ -1,0 +1,51 @@
+import Head from 'next/head';
+import Link from 'next/link';
+import Footer from '../Components/Footer.js';
+import Header from '../Components/Header.js';
+import { listStyle } from '../styles/styles.js';
+
+export default function CarList(props) {
+  return (
+    <>
+      <Head>
+        <title>Cars</title>
+      </Head>
+      <Header />
+      <div classname="Container" css={listStyle}>
+        <ul>
+          {props.cars.map((car) => {
+            return (
+              <li key={`car-li-${car.id}`}>
+                <h2>
+                  <Link href={`/carId/${car.id}`}>
+                    <a>
+                      {car.make} {car.model}
+                    </a>
+                  </Link>
+                  <img src={car.img} alt="a Car" />
+                </h2>
+                <p>{car.year}</p>
+                <Link Link href={`/carId/${car.id}`}>
+                  <a>
+                    <button>View</button>
+                  </a>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+        <Footer />
+      </div>
+    </>
+  );
+}
+
+export async function getServerSideProps() {
+  const { cars } = await import('../util/database.js');
+
+  return {
+    props: {
+      cars,
+    },
+  };
+}

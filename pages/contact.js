@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <div css={firstStyles}>Greetings Car People</div>
+      <div css={firstStyles} />
 
       <Footer />
     </>
