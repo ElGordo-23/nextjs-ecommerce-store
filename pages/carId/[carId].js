@@ -11,38 +11,40 @@ export default function CarId(props) {
           {props.singleCar.make} {props.singleCar.model}
         </title>
       </Head>
-      <Header />
-      <div css={singleCarPageStyles}>
-        <div>
-          <img src={props.singleCar.img} alt="a Car" />
-        </div>
+      <div>
+        <Header />
+        <div css={singleCarPageStyles}>
+          <div>
+            <img src={`../images/${props.singleCar.id}.jpg`} alt="a Car" />
+          </div>
 
-        <div className="text">
-          <h1>
-            {props.singleCar.make} {props.singleCar.model}
-          </h1>
-          <h2>
-            {props.singleCar.year}, {props.singleCar.engine}
-          </h2>
+          <div className="text">
+            <h1>
+              {props.singleCar.make} {props.singleCar.model}
+            </h1>
+            <h2>
+              {props.singleCar.year}, {props.singleCar.engine}
+            </h2>
 
-          <p>{props.singleCar.desc}</p>
-          <p>{props.singleCar.price}</p>
-          <button>Add to cart</button>
+            <p>{props.singleCar.descr}</p>
+            <p>{props.singleCar.price}$</p>
+            <button>Add to Garage</button>
+          </div>
         </div>
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 }
 
 export async function getServerSideProps(context) {
-  const { cars } = await import('../../util/database');
+  const { getCar } = await import('../../util/database');
 
-  const idFromUrl = context.query.carId;
+  const singleCar = await getCar(context.query.carId);
 
-  const singleCar = cars.find((car) => {
-    return idFromUrl === car.id;
-  });
+  // const singleCar = cars.find((car) => {
+  //   return idFromUrl === car.id;
+  // });
 
   return {
     props: {

@@ -22,7 +22,7 @@ export default function CarList(props) {
                       {car.make} {car.model}
                     </a>
                   </Link>
-                  <img src={car.img} alt="a Car" />
+                  <img src={`../images/${car.id}.jpg`} alt="a Car" />
                 </h2>
                 <p>{car.year}</p>
                 <Link Link href={`/carId/${car.id}`}>
@@ -41,7 +41,8 @@ export default function CarList(props) {
 }
 
 export async function getServerSideProps() {
-  const { cars } = await import('../util/database.js');
+  const { getCars } = await import('../util/database.js');
+  const cars = await getCars();
 
   return {
     props: {

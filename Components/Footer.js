@@ -17,11 +17,11 @@ const footerStyles = css`
     margin: 0 15px;
     font-size: 16px;
     letter-spacing: 1px;
-    position: relative;
+    position: absolute;
     display: inline-block;
     width: 100%;
     position: fixed;
-    bottom: 50px;
+    bottom: 0;
     text-align: center;
   }
 `;

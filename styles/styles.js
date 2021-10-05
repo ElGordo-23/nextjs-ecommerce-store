@@ -1,11 +1,14 @@
 import { css } from '@emotion/react';
 
 export const firstStyles = css`
+  @import url('https://fonts.googleapis.com/css?family=Oswald:500');
+  text-align: center;
   font-weight: bold;
   font-size: 35px;
-  margin-top: 50px;
-  margin-left: 50px;
-  font-family: 'Roboto';
+  margin-top: 150px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
 `;
 
 export const listStyle = css`

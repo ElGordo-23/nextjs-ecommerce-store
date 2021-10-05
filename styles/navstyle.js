@@ -2,14 +2,7 @@ import { css } from '@emotion/react';
 
 export const navStyles = css`
   @import url('https://fonts.googleapis.com/css?family=Oswald:500');
-  .back {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-  }
+
   nav {
     width: 100%;
     position: fixed;

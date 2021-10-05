@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <header css={navStyles}>
       <nav>
-        <Link href="/index">
+        <Link href="/">
           <a>Home</a>
         </Link>
         <Link href="/about">
@@ -13,6 +13,9 @@ export default function Header() {
         </Link>
         <Link href="/carList">
           <a>Cars</a>
+        </Link>
+        <Link href="/garage">
+          <a>Your Garage</a>
         </Link>
         <Link href="/contact">
           <a>Contact</a>
