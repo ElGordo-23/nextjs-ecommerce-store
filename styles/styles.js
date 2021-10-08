@@ -58,6 +58,7 @@ export const listStyle = css`
       color: white;
       font-family: 'Roboto', sans-serif;
       text-align: center;
+      cursor: pointer;
     }
     /* button:hover {
       border-right: 2px solid grey;
@@ -108,5 +109,119 @@ export const singleCarPageStyles = css`
     font-family: 'Roboto', sans-serif;
     text-align: center;
     height: 50px;
+    cursor: pointer;
+  }
+  input {
+    display: inline-block;
+    border: 0.1em solid #ffffff;
+    padding: 0.35em 1.2em;
+    margin-top: 10px;
+    width: 150px;
+    background-color: black;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    height: 50px;
+    cursor: pointer;
+  }
+`;
+
+export const cartListStyles = css`
+  margin: 50px;
+  display: grid;
+  justify-content: center;
+  max-height: 500px;
+  overflow-y: scroll;
+  /* border: 5px solid black; */
+  margin-top: 75px;
+
+  ul li {
+    @import url('https://fonts.googleapis.com/css?family=Oswald:500');
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    list-style: none;
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1px;
+    place-items: center;
+    /* border: 1px solid black; */
+    width: -moz-fit-content;
+    button {
+      display: inline-block;
+      border: 0.1em solid #ffffff;
+      padding: 0.35em 1.2em;
+      margin-top: 10px;
+      width: 80px;
+      background-color: black;
+      color: white;
+      @import url('https://fonts.googleapis.com/css?family=Oswald:500');
+      font-family: 'Oswald', sans-serif;
+      text-transform: capitalize;
+      text-align: center;
+      height: 30px;
+      cursor: pointer;
+    }
+    input {
+      display: inline-block;
+      border: 0.1em solid #ffffff;
+      padding: 0.35em 1.2em;
+      margin-top: 10px;
+      width: 80px;
+      background-color: black;
+      color: white;
+      @import url('https://fonts.googleapis.com/css?family=Oswald:500');
+      font-family: 'Oswald', sans-serif;
+      text-align: center;
+      height: 30px;
+      cursor: pointer;
+    }
+  }
+  img {
+    height: 120px;
+  }
+`;
+
+export const cartStyle = css`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .Checkout {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    gap: 20px;
+  }
+
+  .GrandTotal {
+    width: 150px;
+    height: 50px;
+    display: inline-block;
+    border: 0.1em solid black;
+    padding: 0.35em 1.2em;
+    margin-top: 10px;
+    background-color: white;
+    color: black;
+    @import url('https://fonts.googleapis.com/css?family=Oswald:500');
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  button {
+    display: inline-block;
+    border: 0.1em solid black;
+    padding: 0.35em 1.2em;
+    margin-top: 10px;
+    width: 150px;
+    background-color: black;
+    color: white;
+    @import url('https://fonts.googleapis.com/css?family=Oswald:500');
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    height: 50px;
+    cursor: pointer;
   }
 `;

@@ -5,7 +5,7 @@ const footerStyles = css`
 
   footer {
     width: 100%;
-    bottom: 50px;
+    /* bottom: 50px; */
     text-align: center;
   }
   div {

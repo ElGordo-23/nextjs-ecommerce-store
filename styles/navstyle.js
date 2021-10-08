@@ -2,6 +2,9 @@ import { css } from '@emotion/react';
 
 export const navStyles = css`
   @import url('https://fonts.googleapis.com/css?family=Oswald:500');
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
 
   nav {
     width: 100%;
@@ -20,5 +23,21 @@ export const navStyles = css`
     letter-spacing: 1px;
     position: relative;
     display: inline-block;
+    .Garage {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+    }
+  }
+
+  div {
+    font-family: 'Oswald', sans-serif;
+    background-color: black;
+    color: white;
+    width: 130px;
+    font-size: 10px;
+    position: relative;
+    top: 10px;
   }
 `;

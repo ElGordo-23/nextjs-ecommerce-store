@@ -1,9 +1,19 @@
+import Cookies from 'js-cookie';
 import Link from 'next/link';
 import { navStyles } from '../styles/navstyle.js';
 
+// console.log(JSON.parse(Cookies.get('cart')));
+
 export default function Header() {
+  function cartCount() {
+    try {
+      return JSON.parse(Cookies.get('cart'));
+    } catch (err) {
+      return 'Cart Empty';
+    }
+  }
   return (
-    <header css={navStyles}>
+    <div css={navStyles}>
       <nav>
         <Link href="/">
           <a>Home</a>
@@ -15,12 +25,15 @@ export default function Header() {
           <a>Cars</a>
         </Link>
         <Link href="/garage">
-          <a>Your Garage</a>
+          <a className="Garage">
+            Your Garage
+            {cartCount().length > 0 && <div>{cartCount().length}</div>}
+          </a>
         </Link>
         <Link href="/contact">
           <a>Contact</a>
         </Link>
       </nav>
-    </header>
+    </div>
   );
 }
