@@ -6,9 +6,7 @@ function MyApp({ Component, pageProps }) {
       <Global
         styles={css`
           @font-face {
-            font-family: 'Bebas Neue';
-            src: local(''),
-              url('fonts/BebasNeue-Regular.ttf') format('truetype');
+            @import url('https://fonts.googleapis.com/css?family=Oswald:500');
           }
           *,
           ::before,

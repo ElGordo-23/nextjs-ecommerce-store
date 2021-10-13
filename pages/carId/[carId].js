@@ -22,27 +22,31 @@ export default function CarId(props) {
   // the amount the user selects. starts with 0, is later set to the amount the user selects
 
   function addProductToCart() {
-    // first fetch the current cart (the cart is the cookie)
-    const currentCart = getParsedCookie('cart') || [];
-    // these checks are there to update the amount of an item thats already in the cart.
-    const isInCart = currentCart.some(
-      (productInCart) => productInCart.id === Number(props.singleCar.id),
-    );
-    // if there is already an item of the same Id in the cart, this will set its amount to the updated quantity.
-    if (isInCart) {
-      const existingProduct = currentCart.find(
+    if (quantitySelector === 0) {
+      alert('Select at least 1');
+    } else {
+      // first fetch the current cart (the cart is the cookie)
+      const currentCart = getParsedCookie('cart') || [];
+      // these checks are there to update the amount of an item thats already in the cart.
+      const isInCart = currentCart.some(
         (productInCart) => productInCart.id === Number(props.singleCar.id),
       );
-      existingProduct.amount = quantitySelector;
-      setParsedCookie('cart', currentCart);
-    } else {
-      // the above are checks if the item already exists in the cart. this below adds the new product to the cart, and the selected amount. so the newly created object has the keys id and amount.
-      const newProductsInCart = [
-        ...productsInCart, // spread operator adds stuff to an array
-        { id: Number(props.singleCar.id), amount: quantitySelector }, // these values are then constituted in the cookie. every object in the cookie hast those values
-      ];
-      setParsedCookie('cart', newProductsInCart);
-      setProductsInCart(newProductsInCart);
+      // if there is already an item of the same Id in the cart, this will set its amount to the updated quantity.
+      if (isInCart) {
+        const existingProduct = currentCart.find(
+          (productInCart) => productInCart.id === Number(props.singleCar.id),
+        );
+        existingProduct.amount = quantitySelector;
+        setParsedCookie('cart', currentCart);
+      } else {
+        // the above are checks if the item already exists in the cart. this below adds the new product to the cart, and the selected amount. so the newly created object has the keys id and amount.
+        const newProductsInCart = [
+          ...productsInCart, // spread operator adds stuff to an array
+          { id: Number(props.singleCar.id), amount: Number(quantitySelector) }, // these values are then constituted in the cookie. every object in the cookie hast those values
+        ];
+        setParsedCookie('cart', newProductsInCart);
+        setProductsInCart(newProductsInCart);
+      }
     }
   }
 

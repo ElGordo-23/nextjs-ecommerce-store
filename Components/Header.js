@@ -2,14 +2,12 @@ import Cookies from 'js-cookie';
 import Link from 'next/link';
 import { navStyles } from '../styles/navstyle.js';
 
-// console.log(JSON.parse(Cookies.get('cart')));
-
 export default function Header() {
   function cartCount() {
     try {
       return JSON.parse(Cookies.get('cart'));
     } catch (err) {
-      return 'Cart Empty';
+      return '';
     }
   }
   return (

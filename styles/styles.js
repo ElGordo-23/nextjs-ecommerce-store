@@ -147,6 +147,7 @@ export const cartListStyles = css`
     place-items: center;
     /* border: 1px solid black; */
     width: -moz-fit-content;
+
     button {
       display: inline-block;
       border: 0.1em solid #ffffff;
@@ -208,6 +209,8 @@ export const cartStyle = css`
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
     text-align: center;
+    vertical-align: middle;
+    line-height: 40px;
   }
   button {
     display: inline-block;

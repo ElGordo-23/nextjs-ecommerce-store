@@ -1,29 +1,46 @@
-import Cookies from 'js-cookie';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import Footer from '../Components/Footer.js';
 import Header from '../Components/Header.js';
 import { cartListStyles, cartStyle } from '../styles/styles.js';
-import { getParsedCookie, setParsedCookie } from '../util/cookies';
+import { setParsedCookie } from '../util/cookies';
 
 export default function Garage(props) {
-  const [productsInCart, setProductsInCart] = useState(
-    getParsedCookie('cart') || [],
-  ); // this accesses the cookie for this page to use, its again set to an empty array if theres no item in the cart.
-  // to continue, we declare the current cart for this page.
-  const currentCart = [];
+  const [cart, setCart] = useState(props.cookieArray);
 
-  // here we access the props (all cars, objects) first, have the function check if the id of an object in the cookie (the cart, filled by the user) matches the id of one in the props (all cars), and then push those which match into the current cart array. pruductsInCart is set in the [carId]-page, so the individual product page.
+  console.log(cart);
+  console.log(props.cartArray);
 
-  props.cars.forEach((car) => {
-    productsInCart.forEach((product) => {
-      if (product.id === car.id) {
-        currentCart.push({ ...car });
-      } else {
-        return null;
-      }
-    });
-  });
+  const router = useRouter();
+
+  const checkout = () => {
+    router.push('/checkout');
+  };
+
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
+  const removed = (id) => {
+    const currentCookie = [...props.cookieArray];
+    const newCookie = currentCookie.filter((p) => p.id !== id);
+    setParsedCookie('cart', newCookie);
+    setCart(newCookie);
+    refreshPage();
+  };
+
+  function calcGrandTotal() {
+    return props.cartArray.reduce((accumulator, car) => {
+      return accumulator + car.price * car.amount;
+    }, 0);
+  }
+  const grandTotal = calcGrandTotal();
+  const clear = () => {
+    setParsedCookie('cart', []);
+    setCart([]);
+    router.push('/');
+  };
 
   return (
     <>
@@ -31,7 +48,7 @@ export default function Garage(props) {
       <div css={cartStyle}>
         <div css={cartListStyles}>
           <ul>
-            {currentCart.map((car) => {
+            {props.cartArray.map((car) => {
               return (
                 <li key={`car-li-${car.id}`}>
                   <img src={`../images/${car.id}.jpg`} alt="a Car" />
@@ -45,23 +62,18 @@ export default function Garage(props) {
                         currency: 'EUR',
                       }).format(` ${car.price} `)}
                     </p>
+
                     <input
                       type="Number"
                       min="1"
-                      placeholder
-                      value={productsInCart.amount}
+                      value={car.amount}
+
+                      // onChange={(e) => {
+                      //   setUpdatedQuantity(e.currentTarget.value);
+                      // }}
                     />
-                    <button
-                      onClick={() => {
-                        const removed = currentCart.filter((cars) => {
-                          return cars.id !== car.id;
-                        });
-                        setProductsInCart(removed);
-                        setParsedCookie('cart', removed);
-                      }}
-                    >
-                      Remove
-                    </button>
+
+                    <button onClick={() => removed(car.id)}>Remove</button>
                   </div>
                 </li>
               );
@@ -69,12 +81,20 @@ export default function Garage(props) {
           </ul>
         </div>
         <div className="Checkout">
-          <div className="GrandTotal">Grand Total</div>
+          <div className="GrandTotal">
+            {new Intl.NumberFormat('de-DE', {
+              style: 'currency',
+              currency: 'EUR',
+            }).format(` ${grandTotal} `)}
+          </div>
           <Link href="/checkout">
             <a>
-              <button>Checkout</button>
+              <button onClick={checkout}>Checkout</button>
             </a>
           </Link>
+          <button className="Clear" onClick={clear}>
+            Clear Cart
+          </button>
         </div>
       </div>
 
@@ -82,13 +102,31 @@ export default function Garage(props) {
     </>
   );
 }
-export async function getServerSideProps() {
-  const { getCars } = await import('../util/database.js');
+
+export const getServerSideProps = async (context) => {
+  const { getCars } = await import('../util/database');
+
   const cars = await getCars();
 
+  const rawCookie = context.req.cookies.cart;
+  const cookieArray = rawCookie ? JSON.parse(rawCookie) : [];
+
+  const cartArray = cookieArray.map((p) => {
+    const cartObject = cars.find((car) => car.id === p.id);
+
+    return {
+      id: cartObject.id,
+      make: cartObject.make,
+      model: cartObject.model,
+      year: cartObject.year,
+      color: cartObject.color,
+      price: cartObject.price,
+      amount: p.amount,
+      available: cartObject.available,
+    };
+  });
+
   return {
-    props: {
-      cars,
-    },
+    props: { cars, cartArray, cookieArray },
   };
-}
+};
