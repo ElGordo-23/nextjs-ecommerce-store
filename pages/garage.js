@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import Footer from '../Components/Footer.js';
@@ -7,7 +6,7 @@ import { cartListStyles, cartStyle } from '../styles/styles.js';
 import { setParsedCookie } from '../util/cookies';
 
 export default function Garage(props) {
-  const [cart, setCart] = useState(props.cookieArray);
+  const [cart, setCart] = useState(props.cartArray);
 
   console.log(cart);
   console.log(props.cartArray);
@@ -36,6 +35,7 @@ export default function Garage(props) {
     }, 0);
   }
   const grandTotal = calcGrandTotal();
+
   const clear = () => {
     setParsedCookie('cart', []);
     setCart([]);
@@ -48,7 +48,7 @@ export default function Garage(props) {
       <div css={cartStyle}>
         <div css={cartListStyles}>
           <ul>
-            {props.cartArray.map((car) => {
+            {cart.map((car) => {
               return (
                 <li key={`car-li-${car.id}`}>
                   <img src={`../images/${car.id}.jpg`} alt="a Car" />
@@ -66,10 +66,10 @@ export default function Garage(props) {
                     <input
                       type="Number"
                       min="1"
-                      value={car.amount}
-
+                      // value={quantitySelector}
                       // onChange={(e) => {
-                      //   setUpdatedQuantity(e.currentTarget.value);
+                      //   setQuantitySelector(e.currentTarget.value);
+                      //   updateQuantityInCart(e.currentTarget.value);
                       // }}
                     />
 
@@ -87,11 +87,9 @@ export default function Garage(props) {
               currency: 'EUR',
             }).format(` ${grandTotal} `)}
           </div>
-          <Link href="/checkout">
-            <a>
-              <button onClick={checkout}>Checkout</button>
-            </a>
-          </Link>
+
+          <button onClick={checkout}>Checkout</button>
+
           <button className="Clear" onClick={clear}>
             Clear Cart
           </button>
@@ -105,8 +103,13 @@ export default function Garage(props) {
 
 export const getServerSideProps = async (context) => {
   const { getCars } = await import('../util/database');
+  const { getRallyeCars } = await import('../util/database');
 
-  const cars = await getCars();
+  const getcars = await getCars();
+  const rallyecars = await getRallyeCars();
+  const cars = getcars.concat(rallyecars);
+
+  console.log(cars);
 
   const rawCookie = context.req.cookies.cart;
   const cookieArray = rawCookie ? JSON.parse(rawCookie) : [];
@@ -119,7 +122,6 @@ export const getServerSideProps = async (context) => {
       make: cartObject.make,
       model: cartObject.model,
       year: cartObject.year,
-      color: cartObject.color,
       price: cartObject.price,
       amount: p.amount,
       available: cartObject.available,

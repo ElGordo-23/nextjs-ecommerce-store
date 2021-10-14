@@ -39,7 +39,7 @@ export async function getRallyeCar(id) {
     SELECT
       *
     FROM
-      rallyecar
+      rallyecars
     WHERE
       id = ${id}
   `;

@@ -15,9 +15,9 @@ export default function RallyeCarList(props) {
         <ul>
           {props.rcars.map((car) => {
             return (
-              <li key={`car-li-${car.id}`}>
+              <li key={`rallyecar-li-${car.id}`}>
                 <h2>
-                  <Link href={`/carId/${car.id}`}>
+                  <Link href={`/rallyecarId/${car.id}`}>
                     <a>
                       {car.make} {car.model}
                     </a>
@@ -25,7 +25,7 @@ export default function RallyeCarList(props) {
                   <img src={`../images/${car.id}.jpg`} alt="a Car" />
                 </h2>
                 <p>{car.year}</p>
-                <Link Link href={`/carId/${car.id}`}>
+                <Link Link href={`/rallyecarId/${car.id}`}>
                   <a>
                     <button>View</button>
                   </a>

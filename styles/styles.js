@@ -188,6 +188,7 @@ export const cartStyle = css`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  @import url('https://fonts.googleapis.com/css?family=Oswald:500');
 
   .Checkout {
     display: flex;
@@ -205,7 +206,6 @@ export const cartStyle = css`
     margin-top: 10px;
     background-color: white;
     color: black;
-    @import url('https://fonts.googleapis.com/css?family=Oswald:500');
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
     text-align: center;
@@ -220,7 +220,159 @@ export const cartStyle = css`
     width: 150px;
     background-color: black;
     color: white;
-    @import url('https://fonts.googleapis.com/css?family=Oswald:500');
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    height: 50px;
+    cursor: pointer;
+  }
+`;
+
+export const checkoutStyles = css`
+  @import url('https://fonts.googleapis.com/css?family=Oswald:500');
+  margin: 50px;
+  display: grid;
+  justify-content: center;
+  max-height: 500px;
+  overflow-y: scroll;
+  /* border: 5px solid black; */
+  margin-top: 75px;
+
+  ul li {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    list-style: none;
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1px;
+    place-items: center;
+    /* border: 1px solid black; */
+    width: -moz-fit-content;
+    .Amount {
+      border: 0.1em solid #ffffff;
+      background-color: black;
+      color: white;
+      width: 25px;
+      height: 25px;
+      text-transform: lowercase;
+      text-align: center;
+      vertical-align: middle;
+      line-height: 24px;
+    }
+
+    button {
+      display: inline-block;
+      border: 0.1em solid #ffffff;
+      padding: 0.35em 1.2em;
+      margin-top: 10px;
+      width: 80px;
+      background-color: black;
+      color: white;
+      font-family: 'Oswald', sans-serif;
+      text-transform: capitalize;
+      text-align: center;
+      height: 30px;
+      cursor: pointer;
+    }
+    input {
+      display: inline-block;
+      border: 0.1em solid #ffffff;
+      padding: 0.35em 1.2em;
+      margin-top: 10px;
+      width: 80px;
+      background-color: black;
+      color: white;
+
+      font-family: 'Oswald', sans-serif;
+      text-align: center;
+      height: 30px;
+      cursor: pointer;
+    }
+  }
+  img {
+    height: 120px;
+  }
+`;
+
+export const checkoutListStyles = css`
+  /* display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; */
+  @import url('https://fonts.googleapis.com/css?family=Oswald:500');
+
+  button {
+    display: inline-block;
+    border: 0.1em solid black;
+    padding: 0.35em 1.2em;
+    margin-top: 10px;
+    width: 150px;
+    background-color: black;
+    color: white;
+
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    height: 50px;
+    cursor: pointer;
+  }
+`;
+
+export const checkoutFieldStyles = css`
+  font-family: 'Oswald', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 86px;
+  input {
+    border: 0.1em solid black;
+  }
+`;
+
+export const grandTotalStyle = css`
+  width: 150px;
+  height: 50px;
+  display: inline-block;
+  border: 0.1em solid black;
+  padding: 0.35em 1.2em;
+  margin-top: 10px;
+  background-color: white;
+  color: black;
+  @import url('https://fonts.googleapis.com/css?family=Oswald:500');
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 40px;
+  font-weight: bold;
+`;
+export const wrapper = css`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const wrapper2 = css`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 50px;
+`;
+
+export const lowerItemsStyle = css`
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  button {
+    display: inline-block;
+    border: 0.1em solid black;
+    padding: 0.35em 1.2em;
+    margin-top: 10px;
+    width: 150px;
+    background-color: black;
+    color: white;
+
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
     text-align: center;

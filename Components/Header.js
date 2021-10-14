@@ -19,7 +19,7 @@ export default function Header() {
         <Link href="/about">
           <a>About</a>
         </Link>
-        <Link href="/carList">
+        <Link href="/carMenu">
           <a>Cars</a>
         </Link>
         <Link href="/garage">
