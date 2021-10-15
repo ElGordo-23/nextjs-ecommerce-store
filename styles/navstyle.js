@@ -1,10 +1,12 @@
 import { css } from '@emotion/react';
 
+export const navWrapper = css`
+  display: flex;
+  flex-direction: row;
+`;
+
 export const navStyles = css`
   @import url('https://fonts.googleapis.com/css?family=Oswald:500');
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
 
   nav {
     width: 100%;

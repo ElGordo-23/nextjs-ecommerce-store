@@ -10,6 +10,34 @@ export const firstStyles = css`
   font-weight: 500;
   text-transform: uppercase;
 `;
+export const footerStyles = css`
+  @import url('https://fonts.googleapis.com/css?family=Oswald:500');
+
+  footer {
+    width: 100%;
+    text-align: center;
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  div {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #16151b;
+    margin: 0 15px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+  }
+`;
 
 export const listStyle = css`
   @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
@@ -60,10 +88,7 @@ export const listStyle = css`
       text-align: center;
       cursor: pointer;
     }
-    /* button:hover {
-      border-right: 2px solid grey;
-      border-bottom: 2px solid grey;
-    } */
+
     p {
       font-family: 'Bebas-Neue', sans-serif;
       font-weight: 500;
@@ -127,16 +152,15 @@ export const singleCarPageStyles = css`
 `;
 
 export const cartListStyles = css`
+  @import url('https://fonts.googleapis.com/css?family=Oswald:500');
   margin: 50px;
   display: grid;
   justify-content: center;
   max-height: 500px;
   overflow-y: scroll;
-  /* border: 5px solid black; */
   margin-top: 75px;
 
   ul li {
-    @import url('https://fonts.googleapis.com/css?family=Oswald:500');
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
     list-style: none;
@@ -145,7 +169,6 @@ export const cartListStyles = css`
     grid-template-columns: 1fr 1fr;
     grid-gap: 1px;
     place-items: center;
-    /* border: 1px solid black; */
     width: -moz-fit-content;
 
     button {
@@ -156,7 +179,6 @@ export const cartListStyles = css`
       width: 80px;
       background-color: black;
       color: white;
-      @import url('https://fonts.googleapis.com/css?family=Oswald:500');
       font-family: 'Oswald', sans-serif;
       text-transform: capitalize;
       text-align: center;
@@ -171,7 +193,6 @@ export const cartListStyles = css`
       width: 80px;
       background-color: black;
       color: white;
-      @import url('https://fonts.googleapis.com/css?family=Oswald:500');
       font-family: 'Oswald', sans-serif;
       text-align: center;
       height: 30px;
@@ -180,6 +201,8 @@ export const cartListStyles = css`
   }
   img {
     height: 120px;
+
+    width: 210px;
   }
 `;
 
@@ -235,7 +258,6 @@ export const checkoutStyles = css`
   justify-content: center;
   max-height: 500px;
   overflow-y: scroll;
-  /* border: 5px solid black; */
   margin-top: 75px;
 
   ul li {
@@ -247,7 +269,6 @@ export const checkoutStyles = css`
     grid-template-columns: 1fr 1fr;
     grid-gap: 1px;
     place-items: center;
-    /* border: 1px solid black; */
     width: -moz-fit-content;
     .Amount {
       border: 0.1em solid #ffffff;
@@ -291,16 +312,17 @@ export const checkoutStyles = css`
     }
   }
   img {
-    height: 120px;
+    height: 138.5px;
+    width: 210px;
   }
 `;
 
 export const checkoutListStyles = css`
-  /* display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center; */
   @import url('https://fonts.googleapis.com/css?family=Oswald:500');
+  li {
+    color: white;
+    background: black;
+  }
 
   button {
     display: inline-block;
@@ -324,13 +346,14 @@ export const checkoutFieldStyles = css`
   display: flex;
   flex-direction: column;
   gap: 5px;
-  margin-top: 86px;
+  margin-top: 72px;
   input {
     border: 0.1em solid black;
   }
 `;
 
 export const grandTotalStyle = css`
+  @import url('https://fonts.googleapis.com/css?family=Oswald:500');
   width: 150px;
   height: 50px;
   display: inline-block;
@@ -339,7 +362,6 @@ export const grandTotalStyle = css`
   margin-top: 10px;
   background-color: white;
   color: black;
-  @import url('https://fonts.googleapis.com/css?family=Oswald:500');
   font-family: 'Oswald', sans-serif;
   text-transform: uppercase;
   text-align: center;
@@ -364,6 +386,7 @@ export const lowerItemsStyle = css`
   display: flex;
   flex-direction: row;
   gap: 20px;
+  margin-bottom: 100px;
   button {
     display: inline-block;
     border: 0.1em solid black;
@@ -377,6 +400,43 @@ export const lowerItemsStyle = css`
     text-transform: uppercase;
     text-align: center;
     height: 50px;
+    cursor: pointer;
+  }
+`;
+
+export const menuStyle = css`
+  margin: 100px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  text-align: center;
+  .Wrapper {
+    text-align: center;
+  }
+
+  div {
+    font-family: 'Oswald', sans-serif;
+    height: auto;
+    width: 300px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+  }
+  img {
+    height: auto;
+    width: 300px;
+  }
+  button {
+    display: inline-block;
+    border: 0.1em solid #ffffff;
+    padding: 0.35em 1.2em;
+    height: 50px;
+    width: 150px;
+    margin-top: 20px;
+    background-color: black;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
     cursor: pointer;
   }
 `;

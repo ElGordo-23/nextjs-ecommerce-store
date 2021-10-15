@@ -1,6 +1,7 @@
 export function Countries() {
   return (
     <select id="country" name="country" placeholder="Choose">
+      <option />
       <option value="Afghanistan">Afghanistan</option>
       <option value="Åland Islands">Åland Islands</option>
       <option value="Albania">Albania</option>
@@ -286,6 +287,7 @@ export function Countries() {
 export function Payment() {
   return (
     <select>
+      <option />
       <option>Mastercard</option>
       <option>Visa</option>
       <option>Amex</option>

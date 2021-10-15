@@ -90,11 +90,13 @@ export default function CarId(props) {
               }}
             />
             <button onClick={addProductToCart}>Add to Garage</button>
+
             <Link href="/carList">
               <a>
                 <button>Back</button>
               </a>
             </Link>
+
             <Link href="/garage">
               <a>
                 <button>View Garage</button>

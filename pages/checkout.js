@@ -1,4 +1,3 @@
-import Cookies from 'js-cookie';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
@@ -48,7 +47,9 @@ export default function Checkout(props) {
                       <img src={`../images/${car.id}.jpg`} alt="a Car" />
                       <div>
                         <p>
-                          {car.make} {car.model}
+                          {car.make}
+                          <br />
+                          {car.model}
                         </p>
                         <p>
                           {new Intl.NumberFormat('de-DE', {

@@ -63,15 +63,7 @@ export default function Garage(props) {
                       }).format(` ${car.price} `)}
                     </p>
 
-                    <input
-                      type="Number"
-                      min="1"
-                      // value={quantitySelector}
-                      // onChange={(e) => {
-                      //   setQuantitySelector(e.currentTarget.value);
-                      //   updateQuantityInCart(e.currentTarget.value);
-                      // }}
-                    />
+                    <input type="Number" min="1" value={car.amount} />
 
                     <button onClick={() => removed(car.id)}>Remove</button>
                   </div>
@@ -108,8 +100,6 @@ export const getServerSideProps = async (context) => {
   const getcars = await getCars();
   const rallyecars = await getRallyeCars();
   const cars = getcars.concat(rallyecars);
-
-  console.log(cars);
 
   const rawCookie = context.req.cookies.cart;
   const cookieArray = rawCookie ? JSON.parse(rawCookie) : [];

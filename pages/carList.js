@@ -1,4 +1,3 @@
-import { css } from '@emotion/react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Footer from '../Components/Footer.js';
