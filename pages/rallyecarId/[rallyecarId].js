@@ -105,10 +105,8 @@ export default function CarId(props) {
 }
 
 export async function getServerSideProps(context) {
-  // const { getCar } = await import('../../util/database');
   const { getRallyeCar } = await import('../../util/database');
 
-  // const rallyecar = await getCar(context.query.carId);
   const rallyecar = await getRallyeCar(context.query.rallyecarId);
 
   return {
