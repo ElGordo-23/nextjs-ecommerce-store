@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import Footer from '../Components/Footer.js';
+import Footer from '../Components/Footer.tsx';
 import Header from '../Components/Header.js';
 import { listStyle } from '../styles/styles.js';
 

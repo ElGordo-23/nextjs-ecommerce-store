@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import Footer from '../Components/Footer.js';
+import Footer from '../Components/Footer.tsx';
 import Header from '../Components/Header.js';
 import { menuStyle } from '../styles/styles.js';
 

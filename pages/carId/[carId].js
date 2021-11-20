@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
-import Footer from '../../Components/Footer.js';
+import Footer from '../../Components/Footer.tsx';
 import Header from '../../Components/Header.js';
 import { singleCarPageStyles } from '../../styles/styles.js';
 import { getParsedCookie, setParsedCookie } from '../../util/cookies';

@@ -29,13 +29,14 @@
     "@types/dotenv-safe": "^8.1.2",
     "@types/js-cookie": "^3.0.0",
     "@types/node": "^16.0.0",
-    "@types/react": "^17.0.6",
+    "@types/react": "^17.0.30",
     "@types/react-dom": "^17.0.5",
     "@types/sharp": "^0.29.2",
     "@typescript-eslint/eslint-plugin": "^4.21.0",
     "@typescript-eslint/parser": "^4.21.0",
     "@upleveled/eslint-config-upleveled": "1.18.0",
     "@upleveled/eslint-plugin-upleveled": "^1.1.0",
+    "cypress": "^8.6.0",
     "eslint": "^7.23.0",
     "eslint-config-next": "11.1.2",
     "eslint-config-react-app": "^6.0.0",
@@ -49,7 +50,8 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-testing-library": "^4.0.1",
     "eslint-plugin-unicorn": "^36.0.0",
-    "typescript": "^4.2.4"
+    "jest": "^27.3.0",
+    "typescript": "^4.4.4"
   },
   "resolutions": {
     "eslint-plugin-react": "7.24.0",

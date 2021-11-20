@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { Countries, Payment } from '../Components/Dropdowns.js';
-import Footer from '../Components/Footer.js';
+import { Countries, Payment } from '../Components/Dropdowns.tsx';
+import Footer from '../Components/Footer.tsx';
 import Header from '../Components/Header.js';
 import {
   checkoutFieldStyles,
