@@ -1,4 +1,4 @@
-import Footer from '../Components/Footer.js';
+import Footer from '../Components/Footer.tsx';
 import Header from '../Components/Header.js';
 import { firstStyles } from '../styles/styles.js';
 
